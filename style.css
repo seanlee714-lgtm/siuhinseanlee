@@ -110,10 +110,14 @@ dialog::backdrop { background: var(--bg); }
 .intro .copy p { margin: 0; }
 .intro .copy p + p { margin-top: .8em; color: var(--dim); }
 .intro .copy .goal { color: var(--ink); }
+.intro .copy .lead { font-size: clamp(1.3rem, 2vw, 2rem); line-height: 1.2; letter-spacing: -0.01em; }
+.intro { overflow-y: auto; justify-content: safe flex-end; scrollbar-width: none; }
+.intro::-webkit-scrollbar { display: none; }
+.facts b { font-weight: 400; color: var(--ink); }
 .facts { margin: 0; max-width: 56em; display: grid; grid-template-columns: 8em minmax(0, 1fr); gap: 8px var(--gap); }
 .facts dt { color: var(--dim); }
 .facts dd { margin: 0; }
-@media (max-width: 560px) { .facts { grid-template-columns: minmax(0, 1fr); gap: 2px; font-size: .85rem; } .facts dd + dt { margin-top: 8px; } .intro { justify-content: center; padding-bottom: 56px; gap: 12px; } .intro .copy { font-size: .95rem; } }
+@media (max-width: 560px) { .facts { grid-template-columns: minmax(0, 1fr); gap: 2px; font-size: .85rem; } .facts dd + dt { margin-top: 8px; } .intro { justify-content: safe center; padding-bottom: 56px; gap: 12px; } .intro .copy { font-size: .95rem; } }
 
 .end { justify-content: flex-start; }
 .next { display: grid; gap: 8px; font-size: clamp(2rem, 6vw, 6rem); line-height: 1; letter-spacing: -0.03em; }
