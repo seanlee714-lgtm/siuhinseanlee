@@ -43,7 +43,7 @@ body.on-work .front { transform: translateY(-30%); opacity: 0; }
 .col p { margin: 0; display: grid; justify-items: start; gap: .25em; font-size: clamp(.95rem, 1vw, 1.05rem); }
 .col .k { margin-bottom: .2em; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
 .col .sp { margin-top: 1em; }
-.col .grad { margin-top: auto; }
+.col .grad { margin-top: 0; }
 .u { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .22em; text-decoration-color: var(--dim); }
 .u:hover { color: var(--ink); text-decoration-color: var(--ink); }
 .to-work { grid-column: 1; grid-row: 3; align-self: end; justify-self: start; font-size: clamp(2.2rem, 3.8vw, 4rem); line-height: .9; letter-spacing: -0.03em; white-space: nowrap; transition: transform .5s var(--ease); }
@@ -182,9 +182,3 @@ dialog[open] { animation: fade .35s ease both; }
   .to-photo { grid-column: 1 / -1; justify-self: start; }
 }
 
-/* top right: name tag with education under it */
-.tr { grid-column: 2; grid-row: 1; justify-self: end; align-self: start; display: grid; justify-items: end; gap: clamp(20px, 3vh, 32px); text-align: right; }
-.tr .who { grid-column: auto; justify-self: end; }
-.tr .grad { margin: 0; display: grid; justify-items: end; gap: .25em; font-size: clamp(.95rem, 1vw, 1.05rem); }
-.tr .grad .k { margin-bottom: .2em; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
-@media (max-width: 760px) { .tr { grid-column: 1 / -1; } }
