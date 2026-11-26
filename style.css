@@ -172,13 +172,14 @@ dialog[open] { animation: fade .35s ease both; }
 .front { grid-template-columns: minmax(0, 34%) minmax(0, 1fr); }
 .col { grid-column: 1; }
 .who { grid-column: 2; justify-self: end; }
-.to-work { grid-column: 2; justify-self: end; margin-left: 0; margin-right: -0.04em; }
-.to-photo { grid-column: 1; justify-self: start; margin-left: -0.055em; margin-right: 0; }
+.front { grid-template-rows: auto 1fr auto auto; row-gap: 4px; }
+.to-work { grid-column: 1 / -1; grid-row: 3; justify-self: start; margin-left: -0.055em; margin-right: 0; }
+.to-photo { grid-column: 1 / -1; grid-row: 4; justify-self: start; }
 @media (max-width: 760px) {
   .front { grid-template-columns: minmax(0, 1fr) auto; }
   .col { grid-column: 1 / -1; }
   .who { grid-column: 1 / -1; justify-self: end; }
-  .to-work { grid-column: 1 / -1; justify-self: end; }
+  .to-work { grid-column: 1 / -1; justify-self: start; }
   .to-photo { grid-column: 1 / -1; justify-self: start; }
 }
 
