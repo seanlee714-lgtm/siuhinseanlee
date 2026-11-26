@@ -36,7 +36,7 @@ body.on-work .front { transform: translateY(-30%); opacity: 0; }
 /* front, after a classic two-column CV page */
 .front { overflow-y: auto; overscroll-behavior: contain; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 34%); grid-template-rows: auto 1fr auto; column-gap: var(--gap); }
 .who { grid-column: 1; grid-row: 1; align-self: start; }
-.col { grid-column: 2; grid-row: 1 / 3; display: flex; flex-direction: column; justify-content: flex-start; gap: clamp(32px, 5vh, 56px); padding-top: clamp(24px, 5vh, 56px); padding-bottom: clamp(24px, 5vh, 56px); min-height: 0; }
+.col { grid-column: 2; grid-row: 1 / 3; display: flex; flex-direction: column; justify-content: flex-start; gap: clamp(32px, 5vh, 56px); padding-top: 0; padding-bottom: clamp(24px, 5vh, 56px); min-height: 0; }
 .col h1 { margin: 0; font-weight: 400; font-size: clamp(1.7rem, 2.7vw, 2.9rem); line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; display: grid; gap: .3em; }
 .col h1 b { font-weight: 700; letter-spacing: -0.01em; }
 .col h1 span { font-size: .5em; line-height: 1.2; letter-spacing: 0; color: var(--dim); }
@@ -67,10 +67,11 @@ body.on-work .front { transform: translateY(-30%); opacity: 0; }
 .stack { --hh: clamp(54px, 8.5vh, 88px); flex: 1; min-height: 0; margin: 16px calc(-1 * max(var(--gut), env(safe-area-inset-left, 0px))) calc(-1 * max(20px, env(safe-area-inset-bottom, 0px))); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; outline: none; }
 .stack::-webkit-scrollbar { display: none; }
 .card { --n: 4; position: sticky; top: calc(var(--i) * var(--hh)); height: calc(100% - var(--i) * var(--hh)); min-height: 340px; display: flex; flex-direction: column; background: var(--bg); color: var(--fg); border-radius: 16px 16px 0 0; box-shadow: 0 -10px 30px rgba(0,0,0,.35); overflow: hidden; }
-.head { flex: none; height: var(--hh); display: grid; grid-template-columns: 3.2em minmax(0, 1fr) auto; align-items: center; gap: var(--gap); padding: 0 max(var(--gut), env(safe-area-inset-right, 0px)) 0 max(var(--gut), env(safe-area-inset-left, 0px)); font-size: clamp(1.15rem, 2.7vw, 2.6rem); line-height: 1; letter-spacing: -0.02em; width: 100%; }
+.card { --hf: clamp(1.15rem, 2.7vw, 2.6rem); --nc: 3.2; }
+.head { flex: none; height: var(--hh); display: grid; grid-template-columns: calc(var(--nc) * 1em) minmax(0, 1fr) auto; align-items: center; gap: var(--gap); padding: 0 max(var(--gut), env(safe-area-inset-right, 0px)) 0 max(var(--gut), env(safe-area-inset-left, 0px)); font-size: var(--hf); line-height: 1; letter-spacing: -0.02em; width: 100%; }
 .head .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .head .tg { font-size: .42em; letter-spacing: 0; opacity: .75; white-space: nowrap; }
-.body { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: clamp(20px, 3vw, 48px); padding: clamp(12px, 2vh, 24px) max(var(--gut), env(safe-area-inset-right, 0px)) clamp(24px, 4vh, 48px) max(var(--gut), env(safe-area-inset-left, 0px)); }
+.body { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: clamp(20px, 3vw, 48px); padding: clamp(12px, 2vh, 24px) max(var(--gut), env(safe-area-inset-right, 0px)) clamp(24px, 4vh, 48px) calc(max(var(--gut), env(safe-area-inset-left, 0px)) + var(--nc) * var(--hf) + var(--gap)); }
 .txt { display: flex; flex-direction: column; justify-content: space-between; gap: 24px; min-height: 0; padding-left: calc(3.2em * 0 + 0px); }
 .card .why { margin: 0; max-width: 32em; font-size: clamp(1rem, 1.25vw, 1.25rem); line-height: 1.4; text-wrap: pretty; }
 .k { display: block; font-size: .8rem; margin-bottom: .45em; color: var(--dim); }
@@ -84,7 +85,8 @@ body.on-work .front { transform: translateY(-30%); opacity: 0; }
 .opt:hover span { text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
 .cov { width: 100%; height: 100%; min-height: 0; object-fit: contain; object-position: right center; }
 @media (max-width: 760px) {
-  .head { grid-template-columns: 2.2em minmax(0, 1fr); }
+  .card { --nc: 2.2; }
+  .head { grid-template-columns: calc(var(--nc) * 1em) minmax(0, 1fr); }
   .head .tg { display: none; }
   .body { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); gap: 16px; }
   .cov { object-position: left top; }
@@ -160,3 +162,8 @@ dialog[open] { animation: fade .35s ease both; }
   .js .s .b { opacity: 1; transform: none; clip-path: none; }
   .cursor, .peek { display: none; }
 }
+
+/* optical alignment: large type sits a hair left so its letters line up with the small text above and below */
+.to-work, .intro h2, .next { margin-left: -0.055em; }
+.col h1 b { margin-left: -0.03em; }
+.col h1 { margin-top: -0.12em; }
