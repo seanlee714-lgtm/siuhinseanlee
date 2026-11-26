@@ -167,3 +167,17 @@ dialog[open] { animation: fade .35s ease both; }
 .to-work, .intro h2, .next { margin-left: -0.055em; }
 .col h1 b { margin-left: -0.03em; }
 .col h1 { margin-top: -0.12em; }
+
+/* mirrored front: info column and Photography on the left, name tag and Work on the right */
+.front { grid-template-columns: minmax(0, 34%) minmax(0, 1fr); }
+.col { grid-column: 1; }
+.who { grid-column: 2; justify-self: end; }
+.to-work { grid-column: 2; justify-self: end; margin-left: 0; margin-right: -0.04em; }
+.to-photo { grid-column: 1; justify-self: start; margin-left: -0.055em; margin-right: 0; }
+@media (max-width: 760px) {
+  .front { grid-template-columns: minmax(0, 1fr) auto; }
+  .col { grid-column: 1 / -1; }
+  .who { grid-column: 1 / -1; justify-self: end; }
+  .to-work { grid-column: 1 / -1; justify-self: end; }
+  .to-photo { grid-column: 1 / -1; justify-self: start; }
+}
