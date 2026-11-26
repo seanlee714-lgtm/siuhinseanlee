@@ -13,7 +13,7 @@
     if (push) history.replaceState(null, "", toWork ? "#work" : location.pathname);
     if (toWork) stack.focus({ preventScroll: true });
   }
-  document.querySelectorAll("[data-go]").forEach((b) => b.addEventListener("click", () => go(b.dataset.go)));
+  document.querySelectorAll("[data-go]").forEach((b) => b.addEventListener("click", () => { document.querySelectorAll("dialog[open]").forEach((d) => d.close()); go(b.dataset.go); }));
   // scrolling or swiping down on the front also opens the work
   let wheelSum = 0;
   const atEnd = () => front.scrollTop + front.clientHeight >= front.scrollHeight - 2;
